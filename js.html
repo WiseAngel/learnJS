@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		/*function sum(a) {
+			return function (b) {
+				alert(a+b);
+				return a+b;
+			};
+		};
+		alert(sum(1)(2));*/
+
+		// function makeCounter() {
+		//   var currentCount = 1;
+
+		//   return function() {
+		//     return currentCount++;
+		//   };
+		// }
+
+		// var counter = makeCounter();
+
+		// // каждый вызов возвращает результат, увеличивая счётчик
+		// alert( counter() ); // 1
+		// alert( counter() ); // 2
+		// alert( counter() ); // 3
+
+
+
+
+		function makeBuffer() {
+			var completeBuffer ='';
+			function buffer(val) {
+				if (arguments.length==0) return completeBuffer;
+				return completeBuffer +=val;
+			};
+			buffer.clear = function() {
+			    completeBuffer = '';
+			  };
+			  return buffer;
+			
+			
+		};
+
+
+		var buffer = makeBuffer();
+
+
+buffer("Тест");
+buffer(" тебя не съест ");
+alert( buffer() );
+
+buffer.clear();
+
+alert( buffer() );
+
+	</script>
+</body>
+</html>
