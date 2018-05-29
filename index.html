@@ -1,22 +1,504 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-	<meta charset="UTF-8">
-	<title>learn.javascript.ru</title>
-	<!-- <script src="static-properties-and-methods.js"></script> -->
-	<!-- <script src="descriptors-getters-setters.js"></script> -->
-	<!-- <script src="call-apply_1.js"></script> -->
-	<!-- <script src="call-apply_2.js"></script> -->
-	<!-- <script src="learn-json_1.js"></script> -->
-	<!-- <script src="learn-json_2.js"></script> -->
-	<!-- <script src="settimeout-setinterval_1.js"></script> -->
-	<!-- <script src="settimeout-setinterval_2.js"></script> -->
-	<!-- <script src="settimeout-setinterval_3.js"></script> -->
-	<!-- <script src="settimeout-setinterval_4.js"></script> -->
-	<!-- <script src="settimeout-setinterval_5.js"></script> -->
-	<!-- <script src="OOP_1.js"></script> -->
+    <meta charset="UTF-8">
+    <title>learn.javascript.ru</title>
+    <!-- <script src="static-properties-and-methods.js"></script> -->
+    <!-- <script src="descriptors-getters-setters.js"></script> -->
+    <!-- <script src="call-apply_1.js"></script> -->
+    <!-- <script src="call-apply_2.js"></script> -->
+    <!-- <script src="learn-json_1.js"></script> -->
+    <!-- <script src="learn-json_2.js"></script> -->
+    <!-- <script src="settimeout-setinterval_1.js"></script> -->
+    <!-- <script src="settimeout-setinterval_2.js"></script> -->
+    <!-- <script src="settimeout-setinterval_3.js"></script> -->
+    <!-- <script src="settimeout-setinterval_4.js"></script> -->
+    <!-- <script src="settimeout-setinterval_5.js"></script> -->
+    <!-- <script src="OOP_1.js"></script> -->
+    <script src="OOP_2.js"></script>
 </head>
+
 <body>
-	
+    <!-- <script>
+        // 'use strict';
+        // Autor by Mistrick
+        var sign = prompt('Введите оператор: +  -  *  /', '');
+        function showMessageOne()
+        {
+        alert('Операция не может выполняться без операнда');
+        }
+        function showMessageTwo()
+        {
+        alert('Операция не может выполняться без оператора');
+        }
+        function showMessageOff()
+        {
+        alert('Операция отменена.');
+        }
+        if(sign == '')
+        {
+        showMessageOne();
+        }
+        else if(sign == null)
+        {
+        showMessageOff();
+        }
+        else if(!(sign == '+' || sign == '-' || sign == '*' || sign == '/'))
+        {
+        alert('Доступные символы для ввода: +  -  *  /');
+        }
+        else
+        {
+        var ValueOne = prompt("Введите первое число: ", '');
+        
+        if(ValueOne == '')
+        {
+        showMessageTwo();
+        }
+        else if(ValueOne == null)
+        {
+        showMessageOff();
+        }
+        else
+        {
+        var ValueTwo = prompt("Введите второе число: ", '');
+        
+        if(ValueTwo == '')
+        {
+        showMessageTwo();
+        }
+        else if(ValueTwo == null)
+        {
+        showMessageOff();
+        }
+        else
+        {
+        var result;
+        
+        switch(sign)
+        {
+        case '+':
+        {
+        result = Number(ValueOne) + Number(ValueTwo);
+        alert(result);
+        break;
+        }
+        case '-':
+        {
+        result = Number(ValueOne) - Number(ValueTwo);
+        alert(result);
+        break;
+        }
+        case '*':
+        {
+        result = Number(ValueOne) * Number(ValueTwo);
+        alert(result);
+        break;
+        }
+        case '/':
+        {
+        result = Number(ValueOne) / Number(ValueTwo);
+        alert(result);
+        break;
+        }
+        default:
+        {
+        alert('Неизвестное значение.');
+        }
+        }
+        }
+        }
+        }</script> -->
+    <script>
+    /**
+     *Массивы: методы
+     **/
+    /*   //Задача №1
+    function addClass(obj, cls) {
+    var classes = obj.className ? obj.className.split(' ') : [];
+    for (var i = 0; i < classes.length; i++) {
+    if (classes[i] == cls) return; // класс уже есть
+    }
+    classes.push(cls); // добавить
+    obj.className = classes.join(' '); // и обновить свойство
+    }
+    var obj = {
+    className: 'open menu'
+    };
+    addClass(obj, 'new');
+    addClass(obj, 'open');
+    addClass(obj, 'me');
+    alert(obj.className) // open menu new me */
+    /*  //Задача №2
+    function camelize(str) {
+    var css = str.split('');
+    for (var i = 0; i < css.length; i++) {
+    if (css[i] == '-') {
+    css.splice(i, 1);
+    if (!css[i+1]) {
+    continue
+    } else {
+    css[i] = css[i].toUpperCase();
+    }
+        
+    }
+    }
+    str=css.join('');
+    alert(str)
+    };
+    camelize('background-color');
+    camelize('-webkit-color-'); */
+    /*  //Задача №3
+    function removeClass(obj, cls) {
+    var classes = obj.className ? obj.className.split(' ') : [];
+    for (var i = 0; i < classes.length; i++) {
+    if (classes[i] == cls) {
+    classes.splice([i], 1);
+    i = i - 1;
+    }
+    }
+    obj.className = classes.join(' '); // и обновить свойство
+    }
+    var obj = {
+    className: 'my open menu menu'
+    };
+    removeClass(obj, 'open');
+    removeClass(obj, 'blabla');
+    removeClass(obj, 'menu');
+    alert(obj.className); */
+    /*   //Задача №4
+    function filterRangeInPlace(arr, a, b) {
+    if (a>b) {
+    var c = a,
+    a = b,
+    b = c;
+    }
+    for (var i = 0; i < arr.length; i++) {
+    if (arr[i] < a || arr[i] > b) {
+    arr.splice([i], 1);
+    i--;
+    }
+    }
+    }
+    arr = [5, 3, 8, 1, 2, 7, 5, 9, 0];
+    filterRangeInPlace(arr, 4, 1); // удалены числа вне диапазона 1..4
+    alert( arr ); // массив изменился: остались [3, 1] */
+    /* //Задача №5
+    // function compareNumeric(a, b) {
+    //   if (a > b) return 1;
+    //   if (a < b) return -1;
+    // }
+    function compareNumeric(a, b) {
+    return a - b;
+    }
+    var arr = [5, 2, 1, -10, 8];
+    arr.sort(compareNumeric).reverse();
+    alert(arr); */
+    /*   //Задача №6
+    var arr = ["HTML", "JavaScript", "CSS"];
+    var arrSorted = arr.slice(0).sort();
+    alert(arrSorted); // CSS, HTML, JavaScript
+    alert(arr); // HTML, JavaScript, CSS (без изменений) */
+    /*  //Задача №7
+    // var arr = [1, 2, 3, 4, 5, 6];
+    // function randomInteger(a, b) {
+    //   var rand = Math.random();
+    //   // rand = Math.round(rand);
+    //   return rand;
+    // };
+    // arr.sort(randomInteger);
+    // alert(arr);
+    var arr = [1, 2, 3, 4, 5, 6];
+    function compareRandom(a, b) {
+    var rnd = Math.random() - 0.5;
+    return rnd;
+    }
+    arr.sort(compareRandom);
+    alert(arr); */
+    /*    //Задача №8
+    var vasya = {
+    name: "Вася",
+    age: 23
+    };
+    var masha = {
+    name: "Маша",
+    age: 18
+    };
+    var vovochka = {
+    name: "Вовочка",
+    age: 6
+    };
+    var people = [vasya, masha, vovochka];
+    function compareAge(personA, personB) {
+    return personA.age - personB.age;
+    };
+    people.sort(compareAge);
+    // вывести
+    for (var i = 0; i < people.length; i++) {
+    alert(people[i].name); // Вовочка Маша Вася
+    }
+    alert(people[0].age); */
+    /* //Задача №9.1
+    var list = {
+    value: 1,
+    next: {
+    value: 2,
+    next: {
+    value: 3,
+    next: {
+    value: 4,
+    next: null
+    }
+    }
+    }
+    };
+    function printList(list) {
+    var tmp = list;
+    var arr = [];
+    while (tmp) {
+    arr = arr.concat(tmp.value);
+    alert(tmp.value);
+    tmp = tmp.next;
+    }
+    };
+    printList(list);
+    //Задача №9.4
+    var list = {
+    value: 1,
+    next: {
+    value: 2,
+    next: {
+    value: 3,
+    next: {
+    value: 4,
+    next: null
+    }
+    }
+    }
+    };
+    function printList(list) {
+    var tmp = list;
+    var arr = [];
+    while (tmp) {
+    arr = arr.concat(tmp.value);
+    tmp = tmp.next;
+    }
+    arr = arr.reverse();
+    for (let i = 0; i < arr.length; i++) {
+    alert(arr[i]);
+    }
+    };
+    printList(list);
+    //Задача №9.2
+    var list = {
+    value: 1,
+    next: {
+    value: 2,
+    next: {
+    value: 3,
+    next: {
+    value: 4,
+    next: null
+    }
+    }
+    }
+    };
+    function printList(list) {
+    var tmp = list;
+    alert(tmp.value);
+    tmp = tmp.next;
+    if (tmp != null) {
+    printList(list.next);
+    }
+    };
+    printList(list);
+    //задача №9.3
+    var list = {
+    value: 1,
+    next: {
+    value: 2,
+    next: {
+    value: 3,
+    next: {
+    value: 4,
+    next: null
+    }
+    }
+    }
+    };
+    function printReverseList(list) {
+    if (list.next) {
+    printReverseList(list.next);
+    }
+    alert( list.value );
+    }
+    printReverseList(list); */
+    /************************************************************************************************************************************************************************/
+    /**
+     *Массив: перебирающие методы
+     **/
+    /* //Задача №1
+    var arr = ["Есть", "жизнь", "на", "Марсе"];
+    var nameLengths = arr.map(function (name) {
+    return name.length;
+    });
+    alert(nameLengths); */
+    /* //Задача №2
+    var arr = [1, 2, 3, 4, 5];
+    function getSums(arr) {
+    var result = [];
+    if (!arr.length) return result;
+    var totalSum = arr.reduce(function (sum, item) {
+    result.push(sum);
+    return sum + item;
+    });
+    result.push(totalSum);
+    return result;
+    }
+    alert(getSums([1, 2, 3, 4, 5])); */
+    /*   function f(x) {
+    alert( arguments.length ? 1 : 0 );
+    };
+    f(undefined); // 1
+    f(); // 0 */
+    // function sum() {
+    //   var result = 0;
+    //   for (var i = 0; i < arguments.length; i++) {
+    //     result += arguments[i];
+    //   }
+    //   return result;
+    //   // alert(result)
+    // };
+    // alert(sum())
+    // alert(sum(1))
+    // alert(sum(1, 2))
+    // alert(sum(1, 2, 3))
+    // alert(sum(1, 2, 3, 4))
+    /*     var arr = [];
+    for (var i = 0; i < 1000; i++) arr[i] = 0;
+    function walkIn(arr) {
+    for (var key in arr) arr[key]++;
+    }
+    function walkLength(arr) {
+    for (var i = 0; i < arr.length; i++) arr[i]++;
+    }
+    function bench(f) {
+    var date = new Date();
+    for (var i = 0; i < 10000; i++) f(arr);
+    return new Date() - date;
+    }
+    alert('Время walkIn: ' + bench(walkIn) + 'мс');
+    alert('Время walkLength: ' + bench(walkLength) + 'мс'); */
+    /* var z1 = new Date(2012,1,20,3,12)
+    alert(z1); */
+    /*   var date = new Date(2012, 0, 3)
+    function getWeekDay(date) {
+    var days = ['вс', 'пн', 'вт', 'ср', 'чт', 'пт', 'сб'];
+    date = date.getDay();
+    return days[date];
+    }
+    alert(getWeekDay(date)); */
+    /* function getLocalDay(date) {
+    date = date.getDay();
+    if (date == 0) {
+    date = 7
+    };
+    return date;
+    }
+    var date = new Date(2012, 0, 14); // 3 янв 2012
+    alert(getLocalDay(date)); // вторник, выведет 2 */
+    /*  function getDateAgo(date, days) {
+    var d = new Date(date);
+    d.setDate(d.getDate() - days);
+    return d;
+    };
+    var date = new Date(2015, 0, 2);
+    alert(getDateAgo(date, 1)); // 1, (1 января 2015)
+    alert(getDateAgo(date, 2)); // 31, (31 декабря 2014)
+    alert(getDateAgo(date, 365)); // 2, (2 января 2014) */
+    /*   function getLastDayOfMonth(year, month) {
+    var date = new Date(year, month + 1);
+    date.setDate(date.getDate() - 1);
+    var d=date.getDate();
+    return d;
+    }
+    alert(getLastDayOfMonth(2012, 1));
+    alert(getLastDayOfMonth(2012, 0)); // 31
+    alert(getLastDayOfMonth(2012, 1)); // 29
+    alert(getLastDayOfMonth(2013, 1)); // 28 */
+    /* function getSecondsToTomorrow() {
+    var today = new Date();
+    var tomorrow = new Date(today.getFullYear(), today.getMonth(), today.getDate() + 1);
+    var mints = tomorrow - today;
+    // mints = Math.round(mints/1000/60);
+    alert(Math.round(mints/1000/60));
+    // return Math.round(mints/1000/60);
+    }
+    getSecondsToTomorrow(); */
+    /*  function getSecondsToday() {
+    var now = new Date();
+    var today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+    var mints = now - today;
+    // mints = Math.round(mints/1000/60);
+    alert(Math.round(mints/1000/60));
+    // return Math.round(mints/1000/60);
+    }
+    getSecondsToday(); */
+    /* function formatDate(date) {
+    // var now = new Date(date.getFullYear(), date.getMonth(), date.getDate());
+    var year = date.getFullYear(),
+    month = date.getMonth()+1,
+    day = date.getDate();
+    if (month<10) month = '0'+month
+        
+    if (day<10) day = '0'+day
+        
+    return (day + '.' + month + '.' + year);
+    // alert(d.getDate() +'.'+ d.getMonth()+1+'.'+ d.getFullYear())
+    }
+    var d = new Date(2014, 0, 30); // 30 января 2014
+    alert(formatDate(d)); // '30.01.14' */
+    </script>
+    <script>
+    /*function sum(a) {
+            return function (b) {
+            alert(a+b);
+            return a+b;
+            };
+            };
+            alert(sum(1)(2));*/
+    // function makeCounter() {
+    //   var currentCount = 1;
+    //   return function() {
+    //     return currentCount++;
+    //   };
+    // }
+    // var counter = makeCounter();
+    // // каждый вызов возвращает результат, увеличивая счётчик
+    // alert( counter() ); // 1
+    // alert( counter() ); // 2
+    // alert( counter() ); // 3
+    /*      function makeBuffer() {
+    var completeBuffer ='';
+    function buffer(val) {
+    if (arguments.length==0) return completeBuffer;
+    return completeBuffer +=val;
+    };
+    buffer.clear = function() {
+    completeBuffer = '';
+    };
+    return buffer;
+        
+        
+    };
+    var buffer = makeBuffer();
+    buffer("Тест");
+    buffer(" тебя не съест ");
+    alert( buffer() );
+    buffer.clear();
+    alert( buffer() );*/
+    </script>
 </body>
+
 </html>
