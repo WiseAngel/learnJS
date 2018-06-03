@@ -1,21 +1,175 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-	<meta charset="UTF-8">
-	<title>learn.javascript.ru</title>
-	<!-- <script src="static-properties-and-methods.js"></script> -->
-	<!-- <script src="descriptors-getters-setters.js"></script> -->
-	<!-- <script src="call-apply_1.js"></script> -->
-	<!-- <script src="call-apply_2.js"></script> -->
-	<!-- <script src="learn-json_1.js"></script> -->
-	<!-- <script src="learn-json_2.js"></script> -->
-	<!-- <script src="settimeout-setinterval_1.js"></script> -->
-	<!-- <script src="settimeout-setinterval_2.js"></script> -->
-	<!-- <script src="settimeout-setinterval_3.js"></script> -->
-	<!-- <script src="settimeout-setinterval_4.js"></script> -->
-	<!-- <script src="settimeout-setinterval_5.js"></script> -->
+  <meta charset="UTF-8">
+  <title>learn.javascript.ru</title>
+  <!-- <script src="js/taskSlack_1.js"></script> -->
+  <!-- <script src="js/taskSlack_2.js"></script> -->
+  <!-- <script src="js/numbers_1.js"></script> -->
+  <!-- <script src="js/string_1.js"></script> -->
+  <!-- <script src="js/string_2.js"></script> -->
+  <!-- <script src="js/object-for-in_1.js"></script> -->
+  <!-- <script src="js/object-for-in_2.js"></script> -->
+  <!-- <script src="js/object-for-in_3.js"></script> -->
+  <!-- <script src="js/array_1.js"></script> -->
+  <!-- <script src="js/array_2.js"></script> -->
+  <!-- <script src="js/array_3.js"></script> -->
+  <!-- <script src="js/array_4.js"></script> -->
+  <!-- <script src="js/array_5.js"></script> -->
+  <!-- <script src="js/array_6.js"></script> -->
+  <!-- <script src="js/array_7.js"></script> -->
+  <!-- <script src="js/array_8.js"></script> -->
+  <!-- <script src="js/array-iteration_1.js"></script> -->
+  <!-- <script src="js/array-iteration_2.js"></script> -->
+  <!-- <script src="js/arguments-pseudoarray_1.js"></script> -->
+  <!-- <script src="js/arguments-pseudoarray_2.js"></script> -->
+  <!-- <script src="js/datetime_1.js"></script> -->
+  <!-- <script src="js/datetime_2.js"></script> -->
+  <!-- <script src="js/datetime_3.js"></script> -->
+  <!-- <script src="js/datetime_4.js"></script> -->
+  <!-- <script src="js/datetime_5.js"></script> -->
+  <!-- <script src="js/datetime_6.js"></script> -->
+  <!-- <script src="js/datetime_7.js"></script> -->
+  <!-- <script src="js/datetime_8.js"></script> -->
+  <!-- <script src="js/array-methods_1.js"></script> -->
+  <!-- <script src="js/array-methods_2.js"></script> -->
+  <!-- <script src="js/array-methods_3.js"></script> -->
+  <!-- <script src="js/array-methods_4.js"></script> -->
+  <!-- <script src="js/array-methods_5.js"></script> -->
+  <!-- <script src="js/array-methods_6.js"></script> -->
+  <!-- <script src="js/array-methods_7.js"></script> -->
+  <!-- <script src="js/array-methods_8.js"></script> -->
+  <!-- <script src="js/array-methods_9.js"></script> -->
+  <!-- <script src="js/array-methods_10.js"></script> -->
+  <script src="js/array-methods_11.js"></script>
+
+
+  <!-- <script src="js/static-properties-and-methods.js"></script> -->
+  <!-- <script src="js/descriptors-getters-setters.js"></script> -->
+  <!-- <script src="js/call-apply_1.js"></script> -->
+  <!-- <script src="js/call-apply_2.js"></script> -->
+  <!-- <script src="js/learn-json_1.js"></script> -->
+  <!-- <script src="js/learn-json_2.js"></script> -->
+  <!-- <script src="js/settimeout-setinterval_1.js"></script> -->
+  <!-- <script src="js/settimeout-setinterval_2.js"></script> -->
+  <!-- <script src="js/settimeout-setinterval_3.js"></script> -->
+  <!-- <script src="js/settimeout-setinterval_4.js"></script> -->
+  <!-- <script src="js/settimeout-setinterval_5.js"></script> -->
+  <!-- <script src="js/OOP_1.js"></script> -->
+  <!-- <script src="js/OOP_2.js"></script> -->
 </head>
+
 <body>
-	
+
+  <!-- <h1 class="fromLeft">Expand from left</h1>
+  <style>
+    h1 {
+      color: #666;
+      display: inline-block;
+      margin: 0;
+      text-transform: uppercase;
+    }
+
+    h1:after {
+      display: block;
+      content: '';
+      border-bottom: solid 3px #019fb6;
+      transform: scaleX(0);
+      transition: transform 250ms ease-in-out;
+    }
+
+    h1.start:after {
+      transform: scaleX(1);
+    }
+
+    h1.fromLeft:after {
+      transform-origin: 0% 50%;
+    }
+  </style>
+  <script>
+    setTimeout(function () {
+      console.log(42)
+      let h1 = document.querySelector(".fromLeft");
+      h1.classList.add('start')
+    }, 1000)
+  </script> -->
+
+
+  <!-- <script>
+    // 'use strict';
+    // Autor by Mistrick
+    var sign = prompt('Введите оператор: +  -  *  /', '');
+
+    function showMessageOne() {
+      alert('Операция не может выполняться без операнда');
+    }
+
+    function showMessageTwo() {
+      alert('Операция не может выполняться без оператора');
+    }
+
+    function showMessageOff() {
+      alert('Операция отменена.');
+    }
+    if (sign == '') {
+      showMessageOne();
+    } else if (sign == null) {
+      showMessageOff();
+    } else if (!(sign == '+' || sign == '-' || sign == '*' || sign == '/')) {
+      alert('Доступные символы для ввода: +  -  *  /');
+    } else {
+      var ValueOne = prompt("Введите первое число: ", '');
+
+      if (ValueOne == '') {
+        showMessageTwo();
+      } else if (ValueOne == null) {
+        showMessageOff();
+      } else {
+        var ValueTwo = prompt("Введите второе число: ", '');
+
+        if (ValueTwo == '') {
+          showMessageTwo();
+        } else if (ValueTwo == null) {
+          showMessageOff();
+        } else {
+          var result;
+
+          switch (sign) {
+            case '+':
+              {
+                result = Number(ValueOne) + Number(ValueTwo);
+                alert(result);
+                break;
+              }
+            case '-':
+              {
+                result = Number(ValueOne) - Number(ValueTwo);
+                alert(result);
+                break;
+              }
+            case '*':
+              {
+                result = Number(ValueOne) * Number(ValueTwo);
+                alert(result);
+                break;
+              }
+            case '/':
+              {
+                result = Number(ValueOne) / Number(ValueTwo);
+                alert(result);
+                break;
+              }
+            default:
+              {
+                alert('Неизвестное значение.');
+              }
+          }
+        }
+      }
+    }
+  </script> -->
+
 </body>
+
 </html>
