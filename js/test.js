@@ -1,22 +1,76 @@
-// var sum = 0;
+$(document).ready(function () {
+  updateContainer();
+  $(window).resize(function () {
+    updateContainer();
+  });
+});
 
-// for (i = 4; i < 8; i++); {
-//   if (i == 6) {
-//     continue;
-//   }
-//   sum += i;
-// };
-// console.log(sum);
-'use strict';
+function updateContainer() {
+  var $containerHeight = $(window).width();
 
-function sumNum(params) {
-  let sum = 0;
-  for (let i = 4; i < 8; i++) {
-    if (i == 6) continue;
-    sum += i;
-  }
+  $(window).resize(function () {
+    if ($(window).width() <= 568) {
+      // less than
+      $('.slider-arrow').click(function () {
+        if ($(this).hasClass('show')) {
+          $(".slider-arrow, .panel").animate({
+            left: "+=300"
+          }, 700, function () {
+            // Animation complete.
+          });
+          $(".panel .summer-buble").animate({
+            left: "-=270"
+          }, 1700, function () {
+            // Animation complete.
+          });
+          $(this).removeClass('show').addClass('hide');
+        } else {
+          $(".slider-arrow, .panel").animate({
+            left: "-=300"
+          }, 700, function () {
+            // Animation complete.
+          });
+          $(".panel .summer-buble").animate({
+            left: "+=270"
+          }, 500, function () {
+            // Animation complete.
+          });
+          $(this).removeClass('hide').addClass('show');
+        }
+      });
+    }
+  });
 
-  return sum;
+  $(window).resize(function () {
+    if ($(window).width() > 568) {
+      // more than 
+      $('.slider-arrow').click(function () {
+        if ($(this).hasClass('show')) {
+          $(".slider-arrow, .panel").animate({
+            left: "+=300"
+          }, 700, function () {
+            // Animation complete.
+          });
+          $(".panel .summer-buble").animate({
+            left: "-=307"
+          }, 1700, function () {
+            // Animation complete.
+          });
+          $(this).removeClass('show').addClass('hide');
+        } else {
+          $(".slider-arrow, .panel").animate({
+            left: "-=300"
+          }, 700, function () {
+            // Animation complete.
+          });
+          $(".panel .summer-buble").animate({
+            left: "+=307"
+          }, 1700, function () {
+            // Animation complete.
+          });
+          $(this).removeClass('hide').addClass('show');
+        }
+      });
+    }
+  });
 }
-
-console.log(sumNum());
