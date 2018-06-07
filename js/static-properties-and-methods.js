@@ -13,6 +13,17 @@ Article.showStats = function () {
 		alert('Всего: ' + this.count+','+ ' Последняя: ' + Article.time)
 };
 
+
+/* function Article() {
+  Article.created = new Date();
+  Article.count++;
+}
+Article.count = 0;
+Article.showStats = function () {
+  console.log(this.count);
+  console.log(this.created);
+}; */
+
 // использование
 new Article();
 new Article();

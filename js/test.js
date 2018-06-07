@@ -1,76 +1,27 @@
-$(document).ready(function () {
-  updateContainer();
-  $(window).resize(function () {
-    updateContainer();
-  });
-});
-
-function updateContainer() {
-  var $containerHeight = $(window).width();
-
-  $(window).resize(function () {
-    if ($(window).width() <= 568) {
-      // less than
-      $('.slider-arrow').click(function () {
-        if ($(this).hasClass('show')) {
-          $(".slider-arrow, .panel").animate({
-            left: "+=300"
-          }, 700, function () {
-            // Animation complete.
-          });
-          $(".panel .summer-buble").animate({
-            left: "-=270"
-          }, 1700, function () {
-            // Animation complete.
-          });
-          $(this).removeClass('show').addClass('hide');
-        } else {
-          $(".slider-arrow, .panel").animate({
-            left: "-=300"
-          }, 700, function () {
-            // Animation complete.
-          });
-          $(".panel .summer-buble").animate({
-            left: "+=270"
-          }, 500, function () {
-            // Animation complete.
-          });
-          $(this).removeClass('hide').addClass('show');
-        }
-      });
-    }
-  });
-
-  $(window).resize(function () {
-    if ($(window).width() > 568) {
-      // more than 
-      $('.slider-arrow').click(function () {
-        if ($(this).hasClass('show')) {
-          $(".slider-arrow, .panel").animate({
-            left: "+=300"
-          }, 700, function () {
-            // Animation complete.
-          });
-          $(".panel .summer-buble").animate({
-            left: "-=307"
-          }, 1700, function () {
-            // Animation complete.
-          });
-          $(this).removeClass('show').addClass('hide');
-        } else {
-          $(".slider-arrow, .panel").animate({
-            left: "-=300"
-          }, 700, function () {
-            // Animation complete.
-          });
-          $(".panel .summer-buble").animate({
-            left: "+=307"
-          }, 1700, function () {
-            // Animation complete.
-          });
-          $(this).removeClass('hide').addClass('show');
-        }
-      });
-    }
-  });
+function Article() {
+  Article.created = new Date();
+  Article.count++;
 }
+Article.count = 0;
+Article.showStats = function () {
+  console.log(this.count);
+  console.log(this.created);
+};
+new Article();
+Article.showStats(); // Всего: 2, Последняя: (дата)
+
+new Article();
+
+Article.showStats(); // Всего: 3, Последняя: (дата)
+
+
+
+
+/* Article.showCount = function () {
+  console.log(this.count); // (1)
+};
+// использование
+new Article();
+new Article();
+Article.showCount(); // (2)
+ */
