@@ -1,27 +1,25 @@
-function Article() {
-  Article.created = new Date();
-  Article.count++;
+function CoffeeMachine(power) {
+  this._power = power;
+  this._waterAmount = 0;
+
+
 }
-Article.count = 0;
-Article.showStats = function () {
-  console.log(this.count);
-  console.log(this.created);
+CoffeeMachine.prototype.WATER_HEAT_CAPACITY = 4200;
+
+CoffeeMachine.prototype.getTimeToBoil = function getTimeToBoil() {
+  return this._waterAmount * this.WATER_HEAT_CAPACITY * 80 / this._power;
+}
+CoffeeMachine.prototype.run = function () {
+  setTimeout(function () {
+    console.log('Кофе готов!');
+  }, this.getTimeToBoil());
 };
-new Article();
-Article.showStats(); // Всего: 2, Последняя: (дата)
 
-new Article();
-
-Article.showStats(); // Всего: 3, Последняя: (дата)
-
-
-
-
-/* Article.showCount = function () {
-  console.log(this.count); // (1)
+CoffeeMachine.prototype.setWaterAmount = function (amount) {
+  this._waterAmount = amount;
 };
-// использование
-new Article();
-new Article();
-Article.showCount(); // (2)
- */
+
+
+var coffeeMachine = new CoffeeMachine(10000);
+coffeeMachine.setWaterAmount(50);
+coffeeMachine.run();
