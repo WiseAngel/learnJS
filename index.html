@@ -79,118 +79,207 @@
   <!-- <script src="js/OOP_2.js"></script> -->
   <!-- <script src="js/objectDeepEqual.js"></script> -->
   <!-- <script src="js/o_arrSplice.js"></script> -->
-  <script src="js/test.js"></script>
+  <script src="js/debounce.js"></script>
+  <!-- <script src="js/test.js"></script> -->
 </head>
 
 <body>
+  <!-- <!DOCTYPE html>
+  <html>
 
-  <!-- <h1 class="fromLeft">Expand from left</h1>
-  <style>
-    h1 {
-      color: #666;
-      display: inline-block;
-      margin: 0;
-      text-transform: uppercase;
-    }
+  <head>
+    <meta charset="utf-8">
+    <style>
+      td select,
+      td input {
+        width: 150px;
+      }
 
-    h1:after {
-      display: block;
-      content: '';
-      border-bottom: solid 3px #019fb6;
-      transform: scaleX(0);
-      transition: transform 250ms ease-in-out;
-    }
+      label {
+        display: block;
+      }
 
-    h1.start:after {
-      transform: scaleX(1);
-    }
+      .error input,
+      .error textarea {
+        border: 1px solid red;
+      }
 
-    h1.fromLeft:after {
-      transform-origin: 0% 50%;
-    }
-  </style>
-  <script>
-    setTimeout(function () {
-      console.log(42)
-      let h1 = document.querySelector(".fromLeft");
-      h1.classList.add('start')
-    }, 1000)
-  </script> -->
+      .error {
+        color: red;
+      }
+    </style>
+  </head>
+
+  <body>
 
 
-  <!-- <script>
-    // 'use strict';
-    // Autor by Mistrick
-    var sign = prompt('Введите оператор: +  -  *  /', '');
+    <form>
+      <table>
+        <tr>
+          <td>От кого</td>
+          <td>
+            <input name="from" type="text">
+          </td>
+        </tr>
+        <tr>
+          <td>Ваш пароль</td>
+          <td>
+            <input name="password" type="password">
+          </td>
+        </tr>
+        <tr>
+          <td>Повторите пароль</td>
+          <td>
+            <input name="password2" type="password">
+          </td>
+        </tr>
+        <tr>
+          <td>Куда</td>
+          <td>
+            <select name="to">
+              <option></option>
+              <option value="1">Отдел снабжения</option>
+              <option value="2">Отдел разработки</option>
+              <option value="3">Директору</option>
+            </select>
+          </td>
+        </tr>
+      </table>
 
-    function showMessageOne() {
-      alert('Операция не может выполняться без операнда');
-    }
+      Сообщение:
+      <label>
+        <textarea name="message" style="display:block;width:400px;height:80px"></textarea>
+      </label>
 
-    function showMessageTwo() {
-      alert('Операция не может выполняться без оператора');
-    }
+      <input type="button" onclick="validate(this.form)" value="Проверить">
+    </form>
 
-    function showMessageOff() {
-      alert('Операция отменена.');
-    }
-    if (sign == '') {
-      showMessageOne();
-    } else if (sign == null) {
-      showMessageOff();
-    } else if (!(sign == '+' || sign == '-' || sign == '*' || sign == '/')) {
-      alert('Доступные символы для ввода: +  -  *  /');
-    } else {
-      var ValueOne = prompt("Введите первое число: ", '');
+    <script>
+      function showError(container, errorMessage) {
+        container.className = 'error';
+        var msgElem = document.createElement('span');
+        msgElem.className = "error-message";
+        msgElem.innerHTML = errorMessage;
+        container.appendChild(msgElem);
+      }
 
-      if (ValueOne == '') {
-        showMessageTwo();
-      } else if (ValueOne == null) {
-        showMessageOff();
-      } else {
-        var ValueTwo = prompt("Введите второе число: ", '');
-
-        if (ValueTwo == '') {
-          showMessageTwo();
-        } else if (ValueTwo == null) {
-          showMessageOff();
-        } else {
-          var result;
-
-          switch (sign) {
-            case '+':
-              {
-                result = Number(ValueOne) + Number(ValueTwo);
-                alert(result);
-                break;
-              }
-            case '-':
-              {
-                result = Number(ValueOne) - Number(ValueTwo);
-                alert(result);
-                break;
-              }
-            case '*':
-              {
-                result = Number(ValueOne) * Number(ValueTwo);
-                alert(result);
-                break;
-              }
-            case '/':
-              {
-                result = Number(ValueOne) / Number(ValueTwo);
-                alert(result);
-                break;
-              }
-            default:
-              {
-                alert('Неизвестное значение.');
-              }
-          }
+      function resetError(container) {
+        container.className = '';
+        if (container.lastChild.className == "error-message") {
+          container.removeChild(container.lastChild);
         }
       }
+
+      function validate(form) {
+        var elems = form.elements;
+
+        resetError(elems.from.parentNode);
+        if (!elems.from.value) {
+          showError(elems.from.parentNode, ' Укажите от кого.');
+        }
+
+        resetError(elems.password.parentNode);
+        if (!elems.password.value) {
+          showError(elems.password.parentNode, ' Укажите пароль.');
+        } else if (elems.password.value != elems.password2.value) {
+          showError(elems.password.parentNode, ' Пароли не совпадают.');
+        }
+
+        resetError(elems.to.parentNode);
+        if (!elems.to.value) {
+          showError(elems.to.parentNode, ' Укажите, куда.');
+        }
+
+        resetError(elems.message.parentNode);
+        if (!elems.message.value) {
+          showError(elems.message.parentNode, ' Отсутствует текст.');
+        }
+
+      }
+    </script> -->
+<!--     <form class="media" id="form" method="POST">
+      <fieldset>
+          <div class="media-title_m">Registration</div>
+          <label for="first-name"></label>
+          <input autocomplete="off" type="text" class="first-name" name="first_name" placeholder="First Name">
+          <label for="last-name"></label>
+          <input autocomplete="off" type="text" class="last-name" name="last_name" placeholder="Last Name">
+                                                                 
+          <label for="email"></label>
+          <input autocomplete="off" type="text" class="email" name="email" placeholder="Email">
+  
+          <label for="mobile"></label>
+          <input autocomplete="off" type="text" class="mobile" name="phone" placeholder="Mobile">
+  
+          <label for="company"></label>
+          <input autocomplete="off" type="text" class="company" name="company" placeholder="Company">
+  
+          <label for="position"></label>
+          <input autocomplete="off" type="text" class="position" name="position" placeholder="Position">
+      </fieldset>
+     <input type="hidden" name="type" value="participant">
+    <button  class="md-close" type="button">Submit</button>
+   </form>
+
+   <form class="media" id="form1" method="POST">
+    <fieldset>
+        <div class="media-title_m">Registration</div>
+        <label for="first-name1"></label>
+        <input autocomplete="off" type="text" class="first-name" name="first_name1" placeholder="First Name">
+        <label for="last-name1"></label>
+        <input autocomplete="off" type="text" class="last-name" name="last_name1" placeholder="Last Name">
+                                                               
+        <label for="email1"></label>
+        <input autocomplete="off" type="text" class="email" name="email1" placeholder="Email">
+
+        <label for="mobile1"></label>
+        <input autocomplete="off" type="text" class="mobile" name="phone1" placeholder="Mobile">
+
+        <label for="company1"></label>
+        <input autocomplete="off" type="text" class="company" name="company1" placeholder="Company">
+
+        <label for="position1"></label>
+        <input autocomplete="off" type="text" class="position" name="position1" placeholder="Position">
+    </fieldset>
+   <input type="hidden" name="type" value="participant">
+  <button  class="md-close" type="button">Submit</button>
+ </form>
+
+   <script>
+   (function (){
+    function showError(container, errorMessage) {
+      container.className = 'error';
+      let msgElem = document.createElement('span');
+      msgElem.className = "error-message";
+      msgElem.innerHTML = errorMessage;
+      container.appendChild(msgElem);
     }
-  </script> -->
+
+    function formValidation(){
+      let firstName = document.querySelector(".first-name");
+      let lastName = document.querySelector(".last-name");
+      let email = document.querySelector(".email");
+      let mobile = document.querySelector(".mobile");
+      let company = document.querySelector(".company");
+      let position = document.querySelector(".position");
+      
+
+      if(firstName.value !== "" && lastName.value !== "" && email.value !== ""  && mobile.value !== ""  && company.value !== ""  && position.value !== ""){
+          alert(true);
+      }
+    }
+
+    let mdClose = document.querySelectorAll(".md-close");
+    [...mdClose].forEach((item) => {
+      item.onclick = _ => formValidation();
+    })
+    window.onload = _ => formValidation();
+})();
+   </script> -->
+
+</body>
+
+</html>
 
 </body>
 
